@@ -1,0 +1,17 @@
+{
+  "$schema":  "https://raw.githubusercontent.com/jetify-com/devbox/0.12.0/.schema/devbox.schema.json",
+  "packages": ["nodejs@latest"],
+  "env": {
+    "STATSD_VERSION": "v0.10.1",
+  },
+  "shell": {
+    "init_hook": [
+      "bash install-statsd.sh"
+    ],
+    "scripts": {
+      "start-statsd": [
+        "node $DEVBOX_PROJECT_ROOT/.devbox/virtenv/statsd/$STATSD_VERSION/statsd/stats.js devbox.d/statsd/config.json"
+      ]
+    }
+  }
+}
